@@ -16,11 +16,11 @@ class Bootstrap
 					$_controller = new $_controller_namespace();
 					echo call_user_func_array([$_controller, $method], [$params]);
 				} else {
-					echo 'Page Not Found 404 : Method Not Found in Controller '.$controller;
+					// echo 'Page Not Found 404 : Method Not Found in Controller '.$controller; // Not show errors explicit
 					return http_response_code(404);
 				}
 			} else {
-				echo 'Page Not Found 404 : Controller Not Found';
+				// echo 'Page Not Found 404 : Controller Not Found'; // Not show errors explicit
 				return http_response_code(404);
 			}
 		} else {
