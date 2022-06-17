@@ -18,8 +18,8 @@ class UsuariosController {
     $estado = null;
     if(!empty($_POST)) {
       $usuario = $this->usuarios->addUser([
-        'nombre' => $this->filter->filterXSS($_POST['nombre'] ?: ''),
-        'apellidos' => $this->filter->filterXSS($_POST['apellidos'] ?: '')
+        'nombre' => $this->filter->filterXSS($_POST['nombre'] ?? ''),
+        'apellidos' => $this->filter->filterXSS($_POST['apellidos'] ?? '')
       ]);
       $estado = (!empty($usuario)) ? true : false;
     }
