@@ -1,7 +1,7 @@
 <?php namespace app\Models;
 use app\Config\DB;
 
-class DirectoryModel {
+class UsuariosModel {
   private $conexion;
 
   public function __construct() {
@@ -21,16 +21,12 @@ class DirectoryModel {
     return $records;
   }
 
-  public function list() {
-    return [
-      [
-        'id' => 1,
-        'name' => 'new england'
-      ],
-      [
-        'id' => 2,
-        'name' => 'new jersey'
-      ],
+  public function addUser($_data) {
+    $data = [
+      'nombre' => $_data['nombre'],
+      'apellidos' => $_data['apellidos']
     ];
+    
+    $this->pdox->table('usuarios')->insert($data);
   }
 }
