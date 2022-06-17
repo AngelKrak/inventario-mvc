@@ -26,8 +26,8 @@ class UsuariosModel {
       'nombre' => $_data['nombre'],
       'apellidos' => $_data['apellidos']
     ];
-    
     $this->pdox->table('usuarios')->insert($data);
+
     return $this->pdox->insertId();
   }
 }

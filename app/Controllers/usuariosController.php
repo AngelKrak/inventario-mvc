@@ -15,14 +15,18 @@ class UsuariosController {
 	}
 
   public function add() {
+    $estado = null;
     if(!empty($_POST)) {
       $usuario = $this->usuarios->addUser([
-        'nombre' => $this->filter->filterXSS('Jose'),
-        'apellidos' => $this->filter->filterXSS('Perez')
+        'nombre' => $this->filter->filterXSS($_POST['nombre'] ?: ''),
+        'apellidos' => $this->filter->filterXSS($_POST['apellidos'] ?: '')
       ]);
+      $estado = (!empty($usuario)) ? true : false;
     }
 
-    return View::display('AddUsuario');
+    return View::display('usuarios/AddUsuario', [
+      'estado' => $estado
+    ]);
   }
 
   public function list() {
