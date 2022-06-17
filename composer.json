@@ -1,0 +1,14 @@
+{
+    "name": "angel/php-mvc-bp",
+    "description": "pure php mvc(model view controller) boilerplate",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "app\\Controllers\\": "app/Controllers",
+            "app\\Models\\": "app/Models",
+            "app\\Config\\": "app/Config",
+            "app\\Modules\\": "app/Modules"
+        }
+    },
+    "require": {}
+}
