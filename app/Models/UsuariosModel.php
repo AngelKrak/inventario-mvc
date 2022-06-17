@@ -15,7 +15,7 @@ class UsuariosModel {
     $records = $this->pdox->table('usuarios')
 		->select('id_usuario, nombre, apellidos')
 		->orderBy('id_usuario', 'desc')
-		->limit(20)
+		->limit(10)
 		->getAll();
 
     return $records;
@@ -28,5 +28,6 @@ class UsuariosModel {
     ];
     
     $this->pdox->table('usuarios')->insert($data);
+    return $this->pdox->insertId();
   }
 }

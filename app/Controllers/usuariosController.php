@@ -16,7 +16,7 @@ class UsuariosController {
 
   public function add() {
     if(!empty($_POST)) {
-      $this->usuarios->addUser([
+      $usuario = $this->usuarios->addUser([
         'nombre' => $this->filter->filterXSS('Jose'),
         'apellidos' => $this->filter->filterXSS('Perez')
       ]);

@@ -7,8 +7,8 @@ class Bootstrap
 		self::escapemagicquote();
 		$target = self::getPath();
 		if(!empty($target)) {
-			$controller = htmlentities($target['controller'], ENT_QUOTES, "UTF-8");
-			$method = htmlentities($target['method'], ENT_QUOTES, "UTF-8");
+			$controller = self::_stripslashes_deep(htmlentities($target['controller'], ENT_QUOTES, "UTF-8"));
+			$method = self::_stripslashes_deep(htmlentities($target['method'], ENT_QUOTES, "UTF-8"));
 			$params = $target['params'];
 			if($controller !== 'Base' && class_exists('\app\Controllers\\'.$controller.'Controller')) {
 				if(method_exists('app\Controllers\\'.$controller.'Controller', $method)) {
@@ -34,7 +34,7 @@ class Bootstrap
 	private static function getPath()
 	{
 		// php.net/manual/en/function.explode.php (split in js)
-		$path = (!empty($_SERVER['PATH_INFO'])) ? self::_stripslashes_deep(explode('/', $_SERVER['PATH_INFO'])) : [];
+		$path = (!empty($_SERVER['PATH_INFO'])) ? explode('/', $_SERVER['PATH_INFO']) : [];
 		$params = [];
 		// save params to array
 		if(count($path) > 3) {

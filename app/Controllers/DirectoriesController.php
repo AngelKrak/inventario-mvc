@@ -1,4 +1,5 @@
 <?php namespace app\Controllers;
+// VERSION DE EJEMPLO - ELIMINAR CUANDO SEA NECESARIO.
 
 use app\Models\DirectoryModel as Directory;
 use app\Modules\View;

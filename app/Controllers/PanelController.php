@@ -1,9 +1,12 @@
 <?php namespace app\Controllers;
-
 use app\Modules\View;
+use app\Modules\Filter;
 
 class PanelController {
-	
+  public function __construct() {
+    $this->filter = new Filter();
+  }
+
 	public function index(){
 		return '<h1>Panel</h1>';
 	}
