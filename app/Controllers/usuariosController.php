@@ -16,7 +16,7 @@ class UsuariosController {
 
   public function add() {
     $estado = null;
-    if(!empty($_POST)) {
+    if(filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_SPECIAL_CHARS, array('flags' => FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_ENCODE_HIGH)) === 'POST') {
       $usuario = $this->usuarios->addUser([
         'nombre' => $this->filter->filterXSS($_POST['nombre'] ?? ''),
         'apellidos' => $this->filter->filterXSS($_POST['apellidos'] ?? '')
@@ -31,5 +31,12 @@ class UsuariosController {
 
   public function list() {
     return View::display('ListUsuario');
+  }
+
+  public function view($params){
+    if(empty($params) || !is_array($params)) return;
+
+    $id = $this->filter->filterXSS($params[0] ?: '');
+    return '<h1>View info user of id : '.$id.'</h1>';
   }
 }

@@ -34,7 +34,7 @@ class Bootstrap
 	private static function getPath()
 	{
 		// php.net/manual/en/function.explode.php (split in js)
-		$path = (!empty($_SERVER['PATH_INFO'])) ? explode('/', $_SERVER['PATH_INFO']) : [];
+		$path = (!empty($_SERVER['PATH_INFO'])) ? explode('/', strip_tags(filter_input(INPUT_SERVER, 'PATH_INFO', FILTER_SANITIZE_URL))) : [];
 		$params = [];
 		// save params to array
 		if(count($path) > 3) {
