@@ -1,7 +1,7 @@
 <?php namespace app;
 use app\Config\Bootstrap;
 
-// error_reporting(E_ALL);
+// error_reporting(E_ALL); mostrar error
 
 // global modules declaration
 define('BASEDIR', realpath(__DIR__) ?? realpath(dirname(__FILE__)));
