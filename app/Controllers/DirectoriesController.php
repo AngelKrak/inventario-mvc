@@ -1,4 +1,5 @@
 <?php namespace app\Controllers;
+// VERSION DE EJEMPLO - ELIMINAR CUANDO SEA NECESARIO.
 
 use app\Models\DirectoryModel as Directory;
 use app\Modules\View;
@@ -15,6 +16,7 @@ class DirectoriesController {
         $data = [
             'list' => $list
         ];
+
         return View::display('DirectoryList', $data);
     }
     
@@ -28,5 +30,9 @@ class DirectoriesController {
         $id = $this->filter->filterXSS($params[0] ?: '');
 		return '<h1>Directories Detail of id : '.$id.'</h1>';
 	}
+
+    public function add () {
+        return 'Hola, estoy para agregar informacion.';
+    }
 	
 }

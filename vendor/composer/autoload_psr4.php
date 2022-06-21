@@ -10,4 +10,5 @@ return array(
     'app\\Models\\' => array($baseDir . '/app/Models'),
     'app\\Controllers\\' => array($baseDir . '/app/Controllers'),
     'app\\Config\\' => array($baseDir . '/app/Config'),
+    'Buki\\' => array($vendorDir . '/izniburak/pdox/src'),
 );
